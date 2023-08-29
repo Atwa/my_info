@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        initialRoute: RouteList.home,
+        initialRoute: RouteList.info,
         onGenerateRoute: (RouteSettings settings) {
           final routes = Routes.getRoutes(settings);
           final WidgetBuilder? builder = routes[settings.name];

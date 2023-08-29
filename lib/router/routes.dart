@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_sample/feature/location/presentation/location_screen.dart';
-import 'package:flutter_sample/feature/media/presentation/media_screen.dart';
-import 'package:flutter_sample/feature/recorder/presentation/recorder_screen.dart';
-import 'package:flutter_sample/router/route_constants.dart';
+import 'package:my_info/feature/location/presentation/location_screen.dart';
+import 'package:my_info/feature/media/presentation/media_screen.dart';
+import 'package:my_info/feature/recorder/presentation/recorder_screen.dart';
+import 'package:my_info/router/route_constants.dart';
 
 import '../feature/home/presentation/home_screen.dart';
 

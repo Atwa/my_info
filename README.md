@@ -1,4 +1,4 @@
-# flutter_sample
+# my_info
 
 A new Flutter project.
 

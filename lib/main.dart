@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample/router/fade_page_route_builder.dart';
-import 'package:flutter_sample/router/route_constants.dart';
-import 'package:flutter_sample/router/routes.dart';
+import 'package:my_info/router/fade_page_route_builder.dart';
+import 'package:my_info/router/route_constants.dart';
+import 'package:my_info/router/routes.dart';
 
 void main() {
   runApp(const MyApp());

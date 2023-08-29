@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class InfoFormScreen extends StatefulWidget {
-  const InfoFormScreen({super.key});
+class FormInfoScreen extends StatefulWidget {
+  const FormInfoScreen({super.key});
 
   @override
-  State<InfoFormScreen> createState() => _InfoFormScreenState();
+  State<FormInfoScreen> createState() => _FormInfoScreenState();
 }
 
-class _InfoFormScreenState extends State<InfoFormScreen> {
+class _FormInfoScreenState extends State<FormInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

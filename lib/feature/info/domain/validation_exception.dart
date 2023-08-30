@@ -6,6 +6,4 @@ class ValidationException extends Error {
 
   ValidationException(this.message,this.field);
 
-
-
 }

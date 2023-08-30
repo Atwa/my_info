@@ -1,24 +1,26 @@
 part of 'form_info_cubit.dart';
 
-abstract class FormInfoState extends Equatable {
+class FormInfoState extends Equatable {
+  bool loading = false;
+  bool validForm = false;
+  String? errorMessage;
+  FormField? formField;
 
-  const FormInfoState();
+  FormInfoState.initial();
+
+  FormInfoState.loading() {
+    loading = true;
+  }
+
+  FormInfoState.success() {
+    validForm = true;
+  }
+
+  FormInfoState.error(
+    this.errorMessage,
+    this.formField,
+  );
 
   @override
-  List<Object> get props => [];
-}
-
-class InfoFormInitial extends FormInfoState {}
-
-class ValidationSuccess extends FormInfoState {}
-
-class Loading extends FormInfoState {}
-
-class ValidationError extends FormInfoState {
-  final String message;
-
-  const ValidationError(this.message);
-
-  @override
-  List<Object> get props => [message];
+  List<Object?> get props => [loading, validForm, errorMessage, formField];
 }

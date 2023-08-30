@@ -10,13 +10,13 @@ class ValidateInfoUseCase {
 
   ValidateInfoUseCase(this._validator);
 
-  Future<Either<String, bool>> call(String title, String description,
-      String birthDate, String phoneNumber, String countryCode) async {
+  Future<Either<ValidationException, bool>> call(String title, String description,
+      String birthdate, String phoneNumber, String countryCode) async {
     try {
-      FormInfo formInfo = FormInfo(_validator, title, description, birthDate, phoneNumber, countryCode);
+      FormInfo formInfo = FormInfo(_validator, title, description, birthdate, phoneNumber, countryCode);
       return const Right(true);
     } on ValidationException catch (e){
-      return Left(e.message);
+      return Left(e);
     }
   }
 

@@ -1,4 +1,4 @@
-enum FormField{
+enum FormFieldType{
   title,
   description,
   birthdate,

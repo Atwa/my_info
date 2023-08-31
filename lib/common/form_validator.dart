@@ -10,8 +10,15 @@ class FormValidator implements Validator {
       (value.isNotEmpty && value.length <= maxLength);
 
   @override
+  bool equalsLength(String value, int length) =>
+    (value.isNotEmpty && value.length == length);
+
+
+  @override
   bool isValidRegex(String value, String regex) {
     RegExp regExp = RegExp(regex);
     return regExp.hasMatch(value);
   }
+
+
 }

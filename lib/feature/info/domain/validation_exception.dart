@@ -1,8 +1,8 @@
-import 'form_field.dart';
+import 'form_field_type.dart';
 
 class ValidationException extends Error {
   late final String message;
-  late final FormField field;
+  late final FormFieldType field;
 
   ValidationException(this.message,this.field);
 

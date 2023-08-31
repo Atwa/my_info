@@ -1,5 +1,5 @@
 import 'package:my_info/common/validator.dart';
-import 'package:my_info/feature/info/domain/form_field.dart';
+import 'package:my_info/feature/info/domain/form_field_type.dart';
 import 'package:my_info/feature/info/domain/validation_exception.dart';
 
 class FormInfo {
@@ -15,7 +15,7 @@ class FormInfo {
   final int _titleMinLength = 10;
   final String _titleRegex = r'^[a-z A-Z,.\-]+$';
   final int _descriptionMinLength = 12;
-  final String _birthdateFormat = r'^((1[0-2])|[1-9])[/-.](3[0-1]|[1-2]\d|[1-9])[/-.][19|20]\d{2}$';
+  final String _birthdateFormat = r'^((1[0-2])|[1-9])[\/.](3[0-1]|[1-2]\d|[1-9])[\/.][19|20]\d{2}$';
   final int _phoneNumberLength = 10;
   final int _countryCodeLength = 4;
   final String _countryCodeFormat = r'^(\+?\d{1,3}|\d{1,4})$';
@@ -31,41 +31,41 @@ class FormInfo {
 
   void setTitle(String title) {
     if (!_validator.aboveMinLength(title, _titleMinLength)) {
-      throw ValidationException("Title must be at least $_titleMinLength chars.",FormField.title);
+      throw ValidationException("Title must be at least $_titleMinLength chars.",FormFieldType.title);
     }
     if (!_validator.isValidRegex(title, _titleRegex)) {
-      throw ValidationException("Title can't have special characters.",FormField.title);
+      throw ValidationException("Title can't have special characters.",FormFieldType.title);
     }
     _title = title;
   }
 
   void setDescription(String description) {
     if (!_validator.aboveMinLength(description, _descriptionMinLength)) {
-      throw ValidationException("Description must be at least $_descriptionMinLength chars.",FormField.description);
+      throw ValidationException("Description must be at least $_descriptionMinLength chars.",FormFieldType.description);
     }
     _description = description;
   }
 
   void setBirthdate(String birthdate) {
     if (!_validator.isValidRegex(birthdate, _birthdateFormat)) {
-      throw ValidationException("invalid birth date, Please use format dd/mm/yyyy.",FormField.birthdate);
+      throw ValidationException("Birth date must match format dd/mm/yyyy.",FormFieldType.birthdate);
     }
     _birthdate = birthdate;
   }
 
   void setPhoneNumber(String phoneNumber) {
-    if (!_validator.aboveMinLength(phoneNumber, _phoneNumberLength)) {
-      throw ValidationException("Phone number must be at least $_phoneNumberLength numbers.",FormField.phoneNumber);
+    if (!_validator.equalsLength(phoneNumber, _phoneNumberLength)) {
+      throw ValidationException("Phone number must be $_phoneNumberLength numbers.",FormFieldType.phoneNumber);
     }
     _phoneNumber = phoneNumber;
   }
 
   void setCountryCode(String countryCode) {
     if (!_validator.belowMaxLength(countryCode, _countryCodeLength)) {
-      throw ValidationException("Country code must be at least $_countryCodeLength chars.",FormField.countryCode);
+      throw ValidationException("Country code can't exceed $_countryCodeLength digits.",FormFieldType.countryCode);
     }
     if (!_validator.isValidRegex(countryCode, _countryCodeFormat)) {
-      throw ValidationException("Invalid country code.",FormField.countryCode);
+      throw ValidationException("Invalid country code.",FormFieldType.countryCode);
     }
     _countryCode = countryCode;
   }

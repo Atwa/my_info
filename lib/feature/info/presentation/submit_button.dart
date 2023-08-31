@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Button extends StatelessWidget {
+class Button extends StatefulWidget {
   final Function() onPressed;
   final bool isEnabled;
 
@@ -11,13 +11,18 @@ class Button extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<Button> createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> {
+  @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeIn,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: isEnabled
+          colors: widget.isEnabled
               ? [Colors.cyan, Colors.lightBlue]
               : [Colors.grey, Colors.grey],
         ),
@@ -31,7 +36,7 @@ class Button extends StatelessWidget {
       height: 50,
       child: TextButton(
         key: const ValueKey('main_button'),
-        onPressed: isEnabled ? onPressed : null,
+        onPressed: widget.isEnabled ? widget.onPressed : null,
         child: Text(
           'Submit',
           style: Theme.of(context).textTheme.button,

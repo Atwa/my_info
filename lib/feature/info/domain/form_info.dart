@@ -15,7 +15,7 @@ class FormInfo {
   final int _titleMinLength = 10;
   final String _titleRegex = r'^[a-z A-Z,.\-]+$';
   final int _descriptionMinLength = 12;
-  final String _birthdateFormat = r'^((1[0-2])|[1-9])[\/.](3[0-1]|[1-2]\d|[1-9])[\/.][19|20]\d{2}$';
+  final String _birthdateFormat = r'^((1[0-2])|[1-9])[\/.](3[0-1]|[1-2]\d|[1-9])[\/.][19|20]\d{3}$';
   final int _phoneNumberLength = 10;
   final int _countryCodeLength = 4;
   final String _countryCodeFormat = r'^(\+?\d{1,3}|\d{1,4})$';
@@ -48,7 +48,7 @@ class FormInfo {
 
   void setBirthdate(String birthdate) {
     if (!_validator.isValidRegex(birthdate, _birthdateFormat)) {
-      throw ValidationException("Birth date must match format dd/mm/yyyy.",FormFieldType.birthdate);
+      throw ValidationException("Birth date must match format mm/dd/yyyy.",FormFieldType.birthdate);
     }
     _birthdate = birthdate;
   }

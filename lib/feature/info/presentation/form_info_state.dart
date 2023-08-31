@@ -26,6 +26,8 @@ class FormInfoValidation extends FormInfoState {
 
   FormInfoValidation.success() {
     isValidForm = true;
+    errorMessage = null;
+    invalidFormField = null;
   }
 
   @override

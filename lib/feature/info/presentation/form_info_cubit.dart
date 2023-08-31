@@ -52,8 +52,9 @@ class FormInfoCubit extends Cubit<FormInfoState> {
 
   Future<void> submit() async {
     emit(Loading());
-    Future.delayed(const Duration(seconds: 2));
-    emit(FormInfoSuccessSubmission());
+    Future.delayed(const Duration(seconds: 2), () {
+      emit(FormInfoSuccessSubmission());
+    });
   }
 
 }
